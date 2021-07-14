@@ -13,12 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('mascotas')->insert([
-            'nombre' => 'Macho',
+        DB::table('tipos')->insert([
+            'nombre' => 'Canino',
         ]);
 
-        DB::table('mascotas')->insert([
-            'nombre' => 'Hembra',
+        DB::table('tipos')->insert([
+            'nombre' => 'Felino',
         ]);
 
         factory(User::class, 3)->create();
