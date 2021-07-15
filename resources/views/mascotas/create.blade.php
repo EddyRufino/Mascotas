@@ -32,8 +32,11 @@
                 <form action="{{ route('mis-mascotas.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    @include('mascotas.form', ['mascota' => new App\Mascota])
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    @include('mascotas.form', [
+                        'mascota' => new App\Mascota,
+                        'btn' => 'Registrar'
+                    ])
+
 
                 </form>
             </div>

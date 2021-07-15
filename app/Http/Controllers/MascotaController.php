@@ -12,25 +12,36 @@ class MascotaController extends Controller
 
     public function index()
     {
-        $mascotas = Mascota::where('user_id', auth()->id())->get();
+        $mascotas = Mascota::where('user_id', auth()->id())->latest()->paginate();
+
         return view('mascotas.index', compact('mascotas'));
     }
 
     public function create()
     {
         $mascotas = Mascota::where('user_id', auth()->id())->get();
+
         $tipos = Tipo::all();
+
         return view('mascotas.create', compact('mascotas', 'tipos'));
     }
+
     public function store(MascotaRequest $request)
     {
-        dd('xD');
+        $mascota = new Mascota( $request->validated() );
+
+        $mascota->user_id = auth()->id();
+
+        $mascota->save();
+
+        return redirect()->route('mis-mascotas.index')->with('status', $mascota->nombre . ' fue registrado!');
     }
 
     public function show(Mascota $mascota)
     {
         //
     }
+
     public function edit(Mascota $mascota)
     {
         //
