@@ -6,7 +6,7 @@
         <div class="col-md-1"></div>
 
         <div class="col-md-3">
-            <div class="list-group mt-1">
+            <div class="list-group mt-1 shadow-sm">
                 <a href="{{ route('mis-mascotas.index') }}"
                     class="list-group-item list-group-item-action
                         {{ request()->routeIs('mis-mascotas.index') ? 'active' : '' }}"
@@ -23,7 +23,6 @@
                     Nueva Mascota
                 </a>
                 <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
             </div>
         </div>
 

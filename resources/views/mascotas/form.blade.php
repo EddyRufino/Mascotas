@@ -1,4 +1,4 @@
- <div class="aside p-3" style="border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 3px;">
+ <div class="aside p-3 shadow-sm rounded" style="border: 1px solid rgba(0, 0, 0, 0.125);">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Raza</label>
@@ -8,6 +8,7 @@
                 value="{{ old('raza', $mascota->raza) }}"
                 id="inputEmail4"
                 placeholder="Ejm: Labrador"
+                required
             >
 
             @error('raza')
@@ -24,6 +25,7 @@
                 value="{{ old('sexo', $mascota->sexo) }}"
                 id="inputPassword4"
                 placeholder="Ejm: Hembra"
+                required
             >
 
             @error('sexo')
@@ -41,6 +43,7 @@
             value="{{ old('nombre', $mascota->nombre) }}"
             id="inputAddress"
             placeholder="Ejm: Lucky"
+            required
         >
 
             @error('nombre')
@@ -58,6 +61,7 @@
                 class="form-control @error('fecha_nac') is-invalid  @enderror"
                 value="{{ old(<?php echo date("Y-m-d"); ?>, $mascota->fecha_nac) }}"
                 id="inputCity"
+                required
             >
 
             @error('fecha_nac')
@@ -68,7 +72,7 @@
         </div>
         <div class="form-group col-md-4">
             <label for="inputState">Tipo</label>
-            <select id="inputState" name="tipo_id" class="form-control @error('tipo_id') is-invalid  @enderror">
+            <select id="inputState" name="tipo_id" required class="form-control @error('tipo_id') is-invalid  @enderror">
                 <option selected>Selecciona</option>
                 @foreach($tipos as $tipo)
                     <option value="{{ $tipo->id }}"
@@ -93,6 +97,7 @@
                 value="{{ old('color', $mascota->color) }}"
                 placeholder="Ejm: Negro - blanco"
                 id="color"
+                required
             >
 
             @error('color')
@@ -104,7 +109,7 @@
     </div>
     <div class="form-group">
         <label for="inputAddress2">Características</label>
-        <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid  @enderror" id="inputAddress2" cols="30" rows="3"></textarea>
+        <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid  @enderror" id="inputAddress2" cols="30" rows="3" required></textarea>
 
             @error('caracteristicas')
                 <div class="invalid-feedback">

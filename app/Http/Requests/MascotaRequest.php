@@ -32,7 +32,7 @@ class MascotaRequest extends FormRequest
             'caracteristicas' => ['required'],
             'foto' => [''],
             'solicitud' => [''],
-            'tipo_id' => ['required'],
+            'tipo_id' => ['required', 'integer'],
             'user_id' => [''],
         ];
     }
