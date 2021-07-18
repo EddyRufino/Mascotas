@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MascotaRequest;
-use App\Mascota;
 use App\Tipo;
+use App\Mascota;
 use Illuminate\Http\Request;
+use App\Http\Requests\MascotaRequest;
 
 class MascotaController extends Controller
 {
@@ -32,11 +32,11 @@ class MascotaController extends Controller
 
     public function store(MascotaRequest $request)
     {
-        $mascota = new Mascota( $request->validated() );
+        $mascota = Mascota::create( $request->all() );
 
-        $mascota->user_id = auth()->id();
+        // $mascota->user_id = auth()->id();
 
-        $mascota->save();
+        // $mascota->save();
 
         return redirect()->route('mis-mascotas.index')->with('status', $mascota->nombre . ' fue registrado!');
     }

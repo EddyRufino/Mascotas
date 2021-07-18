@@ -25,6 +25,7 @@ class MascotaRequest extends FormRequest
     {
         return [
             'nombre' => ['required'],
+            'url' => [''],
             'fecha_nac' => ['required'],
             'sexo' => ['required'],
             'raza' => ['required'],
