@@ -4,8 +4,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
+// Usuario
+Route::get('profile', 'ProfileController@edit')
+            ->name('profile.edit');
+
+Route::put('profile', 'ProfileController@update')
+            ->name('profile.update');
+
 // Mascotas
-Route::resource('mis-mascotas', 'MascotaController');
+Route::resource('mismascotas', 'MascotaController');
 
 // Solicitudes
 Route::get('mis-solicitudes', 'SolicitudeController@create')->name('mis-solicitudes.create');

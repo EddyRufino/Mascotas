@@ -31,11 +31,11 @@ class MascotaRequest extends FormRequest
             'raza' => ['required'],
             'color' => ['required'],
             'caracteristicas' => ['required'],
-            'foto' => [''],
-            'solicitud' => [''],
+            'foto' => ['image', 'mimes:jpg', 'max:2048', 'required'],
+            'solicitud' => ['required', 'mimes:pdf'],
             'tipo_id' => ['required', 'integer'],
             'user_id' => [''],
-            'solicitude_id' => [''],
+            'estado' => ['nullable'],
         ];
     }
 }

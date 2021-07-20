@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Mascota extends Model
@@ -14,12 +15,12 @@ class Mascota extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
-    public function solicitude()
+    public function tipo()
     {
-        return $this->hasOne('App\Solicitude');
+        return $this->belongsTo(Tipo::class);
     }
 
     public function getRouteKeyName()
@@ -34,6 +35,10 @@ class Mascota extends Model
         $mascota = static::query()->create($attributes);
 
         $mascota->url = \Str::slug($attributes['nombre']) . "-{$mascota->id}";
+
+        $mascota->foto = '/storage/'.request()->file('foto')->store('fotos', 'public');
+
+        $mascota->solicitud = '/storage/'.request()->file('solicitud')->store('solicitudes', 'public');
 
         $mascota->save();
 

@@ -9,7 +9,7 @@
 
         <div class="col-md-8">
             <div class="d-flex flex-row flex-wrap">
-                <form action="{{ route('mis-mascotas.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('mismascotas.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     @include('mascotas.form', [

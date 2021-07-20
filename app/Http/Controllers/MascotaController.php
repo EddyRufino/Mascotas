@@ -34,16 +34,12 @@ class MascotaController extends Controller
     {
         $mascota = Mascota::create( $request->all() );
 
-        // $mascota->user_id = auth()->id();
-
-        // $mascota->save();
-
-        return redirect()->route('mis-mascotas.index')->with('status', $mascota->nombre . ' fue registrado!');
+        return redirect()->route('mismascotas.index')->with('status', $mascota->nombre . ' fue registrado!');
     }
 
-    public function show(Mascota $mascota)
+    public function show(Mascota $mismascota)
     {
-        //
+        return view('mascotas.show', compact('mismascota'));
     }
 
     public function edit(Mascota $mascota)

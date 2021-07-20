@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(User::class, 3)->create();
-        factory(Mascota::class, 8)->create();
+        // factory(Mascota::class, 8)->create();
         // $this->call(UsersTableSeeder::class);
 
     }

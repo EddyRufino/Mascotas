@@ -31,7 +31,6 @@ class SolicitudeController extends Controller
             'solicitud' => '/storage/'.request()->file('solicitud')->store('solicitudes', 'public'),
             'foto' => '/storage/'.request()->file('foto')->store('fotos', 'public'),
             'user_id' => auth()->id(),
-            // 'mascota_id' => $request->mascota_id
         ]);
 
         $mascota->update([
