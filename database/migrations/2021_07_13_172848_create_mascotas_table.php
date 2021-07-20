@@ -26,6 +26,7 @@ class CreateMascotasTable extends Migration
             $table->string('solicitud')->nullable();
             $table->foreignId('tipo_id')->constrained('tipos');
             $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('solicitude_id')->constrained('solicitudes')->nullable();
             $table->timestamps();
         });
     }

@@ -12,4 +12,9 @@ class Solicitude extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function mascota()
+    {
+        return $this->belongsTo('App\Mascota');
+    }
 }

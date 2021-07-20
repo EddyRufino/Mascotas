@@ -17,6 +17,11 @@ class Mascota extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function solicitude()
+    {
+        return $this->hasOne('App\Solicitude');
+    }
+
     public function getRouteKeyName()
     {
       return 'url';

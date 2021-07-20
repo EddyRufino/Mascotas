@@ -21,6 +21,7 @@ $factory->define(Mascota::class, function (Faker $faker) {
         'solicitud' => '',
         'tipo_id' => Tipo::all()->random()->id,
         'user_id' => User::all()->random()->id,
+        'solicitude_id' => '',
     ];
 });
 

@@ -11,7 +11,8 @@
             <div class="d-flex flex-row flex-wrap">
                 @forelse($mascotas as $mascota)
                     <div class="card ml-1 mt-1" style="width: 18rem;">
-                        <img class="card-img-top" src="/mascotas/pet.jpg" alt="Card image cap">
+                        {{-- {{ dd($mascota->solicitude) }} --}}
+                        <img class="card-img-top" src="{{ $mascota->solicitude->foto }}" alt="Card image cap">
                         {{-- <span class="bg-secondary rounded text-center text-white " style="width: 4rem;">Canino</span> --}}
                         <div class="card-body">
                             <h5 class="card-title">{{ $mascota->nombre }}</h5>

@@ -1,4 +1,4 @@
- <div class="aside p-3 shadow-sm rounded" style="border: 1px solid rgba(0, 0, 0, 0.125);">
+{{--  <div class="aside p-3 shadow-sm rounded boder-1">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Raza</label>
@@ -118,12 +118,40 @@
             @enderror
     </div>
     <button type="submit" class="btn btn-primary">{{ $btn }}</button>
-</div>
-{{-- <div class="form-group">
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-            Check me out
-        </label>
-    </div>
 </div> --}}
+<div class="aside p-3 shadow-sm rounded boder-1">
+<div class="tabs">
+  <span class="active"></span>
+  <p class="tab">01</p>
+  <p class="tab">02</p>
+</div>
+
+<div class="content">
+  <div class="page">
+    <h1 class="title">tabs in css</h1>
+    <hr>
+    <p>Lorem ipsum</p>
+  </div>
+  <div class="page">
+    <h1 class="title">tabs 2</h1>
+    <hr>
+    <p>Lorem ipsum dolor </p>
+  </div>
+</div>
+</div>
+
+@push('script')
+    <script type="text/javascript">
+        const tabs = [...document.querySelectorAll('.tab')];
+        const pageContainer = document.querySelector('.content');
+        const activeSpan = document.querySelector('.tabs .active');
+
+        tabs.forEach((item, i) => {
+            item.addEventListener('click', () => {
+                console.log(item);
+                pageContainer.style.marginLeft = `-${i * 100}%`;
+                activeSpan.style.left = `${i * 20}%`;
+            })
+        })
+    </script>
+@endpush

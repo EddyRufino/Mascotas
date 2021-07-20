@@ -35,6 +35,7 @@ class MascotaRequest extends FormRequest
             'solicitud' => [''],
             'tipo_id' => ['required', 'integer'],
             'user_id' => [''],
+            'solicitude_id' => [''],
         ];
     }
 }
