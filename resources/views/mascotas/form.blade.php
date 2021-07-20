@@ -1,4 +1,4 @@
- <div class="aside p-3" style="border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 3px;">
+{{--  <div class="aside p-3 shadow-sm rounded boder-1">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Raza</label>
@@ -8,6 +8,7 @@
                 value="{{ old('raza', $mascota->raza) }}"
                 id="inputEmail4"
                 placeholder="Ejm: Labrador"
+                required
             >
 
             @error('raza')
@@ -24,6 +25,7 @@
                 value="{{ old('sexo', $mascota->sexo) }}"
                 id="inputPassword4"
                 placeholder="Ejm: Hembra"
+                required
             >
 
             @error('sexo')
@@ -41,6 +43,7 @@
             value="{{ old('nombre', $mascota->nombre) }}"
             id="inputAddress"
             placeholder="Ejm: Lucky"
+            required
         >
 
             @error('nombre')
@@ -58,6 +61,7 @@
                 class="form-control @error('fecha_nac') is-invalid  @enderror"
                 value="{{ old(<?php echo date("Y-m-d"); ?>, $mascota->fecha_nac) }}"
                 id="inputCity"
+                required
             >
 
             @error('fecha_nac')
@@ -68,7 +72,7 @@
         </div>
         <div class="form-group col-md-4">
             <label for="inputState">Tipo</label>
-            <select id="inputState" name="tipo_id" class="form-control @error('tipo_id') is-invalid  @enderror">
+            <select id="inputState" name="tipo_id" required class="form-control @error('tipo_id') is-invalid  @enderror">
                 <option selected>Selecciona</option>
                 @foreach($tipos as $tipo)
                     <option value="{{ $tipo->id }}"
@@ -93,6 +97,7 @@
                 value="{{ old('color', $mascota->color) }}"
                 placeholder="Ejm: Negro - blanco"
                 id="color"
+                required
             >
 
             @error('color')
@@ -104,7 +109,7 @@
     </div>
     <div class="form-group">
         <label for="inputAddress2">Características</label>
-        <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid  @enderror" id="inputAddress2" cols="30" rows="3"></textarea>
+        <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid  @enderror" id="inputAddress2" cols="30" rows="3" required></textarea>
 
             @error('caracteristicas')
                 <div class="invalid-feedback">
@@ -113,12 +118,40 @@
             @enderror
     </div>
     <button type="submit" class="btn btn-primary">{{ $btn }}</button>
-</div>
-{{-- <div class="form-group">
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-            Check me out
-        </label>
-    </div>
 </div> --}}
+<div class="aside p-3 shadow-sm rounded boder-1">
+<div class="tabs">
+  <span class="active"></span>
+  <p class="tab">01</p>
+  <p class="tab">02</p>
+</div>
+
+<div class="content">
+  <div class="page">
+    <h1 class="title">tabs in css</h1>
+    <hr>
+    <p>Lorem ipsum</p>
+  </div>
+  <div class="page">
+    <h1 class="title">tabs 2</h1>
+    <hr>
+    <p>Lorem ipsum dolor </p>
+  </div>
+</div>
+</div>
+
+@push('script')
+    <script type="text/javascript">
+        const tabs = [...document.querySelectorAll('.tab')];
+        const pageContainer = document.querySelector('.content');
+        const activeSpan = document.querySelector('.tabs .active');
+
+        tabs.forEach((item, i) => {
+            item.addEventListener('click', () => {
+                console.log(item);
+                pageContainer.style.marginLeft = `-${i * 100}%`;
+                activeSpan.style.left = `${i * 20}%`;
+            })
+        })
+    </script>
+@endpush

@@ -25,6 +25,7 @@ class MascotaRequest extends FormRequest
     {
         return [
             'nombre' => ['required'],
+            'url' => [''],
             'fecha_nac' => ['required'],
             'sexo' => ['required'],
             'raza' => ['required'],
@@ -32,8 +33,9 @@ class MascotaRequest extends FormRequest
             'caracteristicas' => ['required'],
             'foto' => [''],
             'solicitud' => [''],
-            'tipo_id' => ['required'],
+            'tipo_id' => ['required', 'integer'],
             'user_id' => [''],
+            'solicitude_id' => [''],
         ];
     }
 }

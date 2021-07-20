@@ -7,6 +7,8 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
+$primary: #10B981;
+$secondary: #6366F1;
 $blue: #3490dc;
 $indigo: #6574cd;
 $purple: #9561e2;
@@ -17,3 +19,134 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+.form-control {
+    background-color: #F9FAFB !important;
+}
+
+label {
+    color: #495057;
+}
+
+.boder-1 {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.color-secondary {
+    color: #6366F1;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+
+.tabs{
+  position: relative;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  background: #232323;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 20px;
+  color: #b9b9b9;
+  transition: .5s;
+}
+
+.tab:hover{
+  background: #373737;
+}
+
+.tabs .active{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 60px;
+  width: 20%;
+  border-bottom: 4px solid #fff;
+  transition: 1s;
+}
+
+.content{
+  position: relative;
+  width: 50vw;
+  min-height: calc(100vh - 60px);
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(5, 100vw);
+  transition: .5s;
+}
+
+.page{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(https://raw.githubusercontent.com/kunaal438/tabs-in-css/master/img/img1.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+}
+
+.page:nth-child(2){
+  background: url(https://raw.githubusercontent.com/kunaal438/tabs-in-css/master/img/img2.jpeg);
+  background-size: cover;
+}
+
+.page:nth-child(3){
+  background: url(https://raw.githubusercontent.com/kunaal438/tabs-in-css/master/img/img3.jpeg);
+  background-size: cover;
+}
+
+.page:nth-child(4){
+  background: url(https://raw.githubusercontent.com/kunaal438/tabs-in-css/master/img/img4.jpeg);
+  background-size: cover;
+}
+
+.page:nth-child(5){
+  background: url(https://raw.githubusercontent.com/kunaal438/tabs-in-css/master/img/img5.jpeg);
+  background-size: cover;
+}
+
+.page::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #232323;
+  opacity: .8;
+}
+
+.page .title,
+.page hr,
+.page p{
+  position: relative;
+  z-index: 2;
+}
+
+.title{
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 50px;
+}
+
+hr{
+  margin: 20px 0;
+}
+
+.page p{
+  color: #fff;
+  font-weight: 300;
+  margin-top: 40px;
+  line-height: 25px;
+}

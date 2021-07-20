@@ -16,4 +16,27 @@ class Mascota extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function solicitude()
+    {
+        return $this->hasOne('App\Solicitude');
+    }
+
+    public function getRouteKeyName()
+    {
+      return 'url';
+    }
+
+    public static function create(array $attributes = []) {
+
+        $attributes['user_id'] = auth()->id();
+
+        $mascota = static::query()->create($attributes);
+
+        $mascota->url = \Str::slug($attributes['nombre']) . "-{$mascota->id}";
+
+        $mascota->save();
+
+        return $mascota;
+    }
 }

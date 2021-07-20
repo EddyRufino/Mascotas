@@ -8,15 +8,14 @@
         @include('partials.nav-left')
 
         <div class="col-md-8">
-            <div class="d-flex flex-row flex-wrap">
-                <form action="{{ route('mis-mascotas.store') }}" method="POST" enctype="multipart/form-data">
+            <div class="d-flex flex-row flex-wrap overflow-hidden">
+                <form action="{{ route('mis-solicitudes.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    @include('mascotas.form', [
-                        'mascota' => new App\Mascota,
-                        'btn' => 'Registrar'
+                    @include('solicitudes.form', [
+                        'solicitude' => new App\Solicitude,
+                        'btn' => 'Subir'
                     ])
-
 
                 </form>
             </div>

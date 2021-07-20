@@ -18,6 +18,7 @@ class CreateSolicitudesTable extends Migration
             $table->string('solicitud');
             $table->string('foto');
             $table->foreignId('user_id')->constrained('users');
+            // $table->foreignId('mascota_id')->constrained('mascotas');
             $table->timestamps();
         });
     }
