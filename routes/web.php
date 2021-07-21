@@ -14,6 +14,12 @@ Route::put('profile', 'ProfileController@update')
 // Mascotas
 Route::resource('mismascotas', 'MascotaController');
 
+// Lista Mascotas admin
+Route::resource('listadomascotas', 'GenerarqrController')->only(['index', 'show']);
+
+// Search Mascotas admin
+Route::get('buscar-mascota', 'search\SearchMascotaController@index')->name('search.mascota');
+
 // Solicitudes
 Route::get('mis-solicitudes', 'SolicitudeController@create')->name('mis-solicitudes.create');
 Route::post('mis-solicitudes', 'SolicitudeController@store')->name('mis-solicitudes.store');

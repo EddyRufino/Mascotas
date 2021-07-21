@@ -8,6 +8,10 @@ label {
   color: #495057;
 }
 
+strong {
+  color: #495057;
+}
+
 .boder-1 {
   border: 1px solid rgba(0, 0, 0, 0.125);
 }

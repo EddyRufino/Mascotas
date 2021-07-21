@@ -15,14 +15,24 @@
                             style="height: 200px;">
                         {{-- <span class="bg-secondary rounded text-center text-white " style="width: 4rem;">Canino</span> --}}
                         <div class="card-body">
-                            <h5 class="card-title">{{ $mascota->nombre }}</h5>
-                            <p class="card-text">{{ $mascota->caracteristicas }}</p>
+                            <h5 class="card-title text-capitalize">
+                                {{ Illuminate\Support\Str::title($mascota->nombre) }}
+                            </h5>
+                            <p class="card-text">
+                                {{ Illuminate\Support\Str::limit(
+                                    Illuminate\Support\Str::lower(
+                                        $mascota->caracteristicas), 90, '...'
+                                    ) }}
+                            </p>
                             <a href="{{ route('mismascotas.show', $mascota) }}" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
                 @empty
                     <strong>Aún no tienes mascotas registradas.</strong>
                 @endforelse
+            </div>
+            <div class="overflow-auto mt-2">
+                {{ $mascotas->links() }}
             </div>
         </div>
     </div>

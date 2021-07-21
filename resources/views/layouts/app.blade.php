@@ -61,6 +61,11 @@
                                     <a class="dropdown-item" href="{{ route('mismascotas.index') }}">
                                         Mi Mascota
                                     </a>
+                                    @if (Auth::user()->admin_since == 1)
+                                        <a class="dropdown-item" href="{{ route('listadomascotas.index') }}">
+                                            Generar QR
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
