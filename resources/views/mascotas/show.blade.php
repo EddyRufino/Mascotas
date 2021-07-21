@@ -11,7 +11,10 @@
         >
 
     </div>
-    <div class="d-flex justify-content-center flex-column align-items-center">
+    <div class="">
+        <a href="#" class="d-flex justify-content-center mb-4">Editar</a>
+    </div>
+    <div class="row justify-content-center pl-3">
         <ul class="list-group col-md-3">
             <li class="list-group-item"><strong>MI MASCOTA</strong></li>
             <li class="list-group-item">Nombre: {{ Illuminate\Support\Str::title($mismascota->nombre) }}</li>
@@ -21,7 +24,7 @@
             <li class="list-group-item">Sexo: {{ Illuminate\Support\Str::title($mismascota->sexo) }}</li>
             <li class="list-group-item">Color: {{ Illuminate\Support\Str::title($mismascota->color) }}</li>
         </ul>
-        <ul class='list-group col-md-3 mt-3'>
+        <ul class='list-group col-md-3 '>
             <li class="list-group-item"><strong>ADULTO RESPONSABLE</strong></li>
             <li class="list-group-item">Nombre: {{ Illuminate\Support\Str::title($mismascota->user->name) }}</li>
             <li class="list-group-item">Apellidos: {{ Illuminate\Support\Str::title($mismascota->user->apellidos) }}</li>
