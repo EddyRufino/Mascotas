@@ -7,12 +7,12 @@
         <img
             src="{{ asset($mismascota->foto) }}"
             alt="{{ $mismascota->nombre }}"
-            class='img-thumbnail' style="width: 250px; height: 150px;"
+            class="img-thumbnail" style="width: 250px; height: 150px;"
         >
 
     </div>
     <div class="">
-        <a href="#" class="d-flex justify-content-center mb-4">Editar</a>
+        <a href="{{ route('mismascotas.edit', $mismascota) }}" class="d-flex justify-content-center mb-4">Editar</a>
     </div>
     <div class="row justify-content-center pl-3">
         <ul class="list-group col-md-3">

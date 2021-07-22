@@ -9,12 +9,11 @@
 
         <div class="col-md-8">
             <div class="d-flex flex-row flex-wrap">
-                <form action="{{ route('mismascotas.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                <form action="{{ route('mismascotas.update', $mismascota) }}" method="POST" enctype="multipart/form-data">
+                    @csrf @method('PUT')
 
                     @include('mascotas.form', [
-                        'mismascota' => new App\Mascota,
-                        'btn' => 'Registrar'
+                        'btn' => 'Editar'
                     ])
 
 

@@ -1,3 +1,4 @@
+{{-- {{ dd($mismascota) }} --}}
     <fieldset class="aside p-3 shadow-sm rounded boder-1">
         <legend class="text-legend">
             Mi Mascota
@@ -8,7 +9,7 @@
                 <input type="text"
                     name="raza"
                     class="form-control @error('raza') is-invalid  @enderror"
-                    value="{{ old('raza', $mascota->raza) }}"
+                    value="{{ old('raza', $mismascota->raza) }}"
                     id="inputEmail4"
                     placeholder="Ejm: Labrador"
                     required
@@ -25,7 +26,7 @@
                 <input type="text"
                     name="sexo"
                     class="form-control @error('sexo') is-invalid  @enderror"
-                    value="{{ old('sexo', $mascota->sexo) }}"
+                    value="{{ old('sexo', $mismascota->sexo) }}"
                     id="inputPassword4"
                     placeholder="Ejm: Hembra"
                     required
@@ -43,7 +44,7 @@
             <input type="text"
                 name="nombre"
                 class="form-control @error('nombre') is-invalid @enderror"
-                value="{{ old('nombre', $mascota->nombre) }}"
+                value="{{ old('nombre', $mismascota->nombre) }}"
                 id="inputAddress"
                 placeholder="Ejm: Lucky"
                 required
@@ -62,7 +63,7 @@
                     name="fecha_nac"
                     min="2015-01-01" max="2030-12-31" required
                     class="form-control @error('fecha_nac') is-invalid  @enderror"
-                    value="{{ old(<?php echo date("Y-m-d"); ?>, $mascota->fecha_nac) }}"
+                    value="<?php echo $_SERVER["REQUEST_URI"] ? date("Y-m-d", strtotime($mismascota->fecha_nac)) : date("Y-m-d"); ?>"
                     id="inputCity"
                     required
                 >
@@ -79,7 +80,7 @@
                     <option selected>Selecciona</option>
                     @foreach($tipos as $tipo)
                         <option value="{{ $tipo->id }}"
-                            {{ old('tipo_id', $mascota->tipo_id) == $tipo->id ? 'selected' : '' }}
+                            {{ old('tipo_id', $mismascota->tipo_id) == $tipo->id ? 'selected' : '' }}
                         >
                             {{ $tipo->nombre }}
                         </option>
@@ -97,7 +98,7 @@
                 <input type="text"
                     name="color"
                     class="form-control @error('color') is-invalid  @enderror"
-                    value="{{ old('color', $mascota->color) }}"
+                    value="{{ old('color', $mismascota->color) }}"
                     placeholder="Ejm: Negro - blanco"
                     id="color"
                     required
@@ -112,7 +113,9 @@
         </div>
         <div class="form-group">
             <label for="inputAddress2">Características</label>
-            <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid  @enderror" id="inputAddress2" cols="30" rows="3" required></textarea>
+            <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid  @enderror" id="inputAddress2" cols="30" rows="3" required >
+                {{ $mismascota->caracteristicas }}
+            </textarea>
 
                 @error('caracteristicas')
                     <div class="invalid-feedback">
@@ -138,7 +141,12 @@
             </span>
 {{--             <input type="file" name="solicitud" class="form-control-file @error('solicitud') is-invalid  @enderror" id="exampleFormControlFile1"> --}}
             <div class="custom-file">
-                <input type="file" name="solicitud" class="custom-file-input">
+                <input
+                    type="file"
+                    name="solicitud"
+                    class="custom-file-input"
+                    value="{{ old('foto', $mismascota->solicitud) }}"
+                >
                 <label class="custom-file-label">
                     Seleciona un archivo PDF
                 </label>
@@ -149,6 +157,15 @@
                     {{$message}}
                 </div>
             @enderror
+
+            @if (request()->routeIs('mismascotas.create'))
+
+            @else
+                <div class="mt-3">
+                    <a href="{{ asset($mismascota->solicitud) }}" target="_blank">Ver Solicitud</a>
+                </div>
+            @endif
+
         </div>
 
         <div class="form-group">
@@ -162,7 +179,12 @@
             </span>
             {{-- <input type="file" name="foto" class="form-control-file @error('foto') is-invalid  @enderror" id="exampleFormControlFile1"> --}}
             <div class="custom-file">
-                <input type="file" name="foto" class="custom-file-input">
+                <input
+                    type="file"
+                    name="foto"
+                    class="custom-file-input"
+                    value="{{ old('foto', $mismascota->foto) }}"
+                >
                 <label class="custom-file-label">
                     Seleciona una foto JPG
                 </label>
@@ -173,6 +195,19 @@
                     {{$message}}
                 </div>
             @enderror
+
+            @if (request()->routeIs('mismascotas.create'))
+
+            @else
+                <div class="mt-3">
+                    <img
+                        src="{{ asset($mismascota->foto) }}"
+                        alt="{{ $mismascota->nombre }}"
+                        class="img-thumbnail"
+                        style="width: 250px; height: 150px;"
+                    >
+                </div>
+            @endif
         </div>
 
     </fieldset>

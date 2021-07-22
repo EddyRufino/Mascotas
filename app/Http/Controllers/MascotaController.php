@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Tipo;
-use App\Mascota;
-use Illuminate\Http\Request;
 use App\Http\Requests\MascotaRequest;
+use App\Mascota;
+use App\Tipo;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MascotaController extends Controller
 {
@@ -42,14 +43,48 @@ class MascotaController extends Controller
         return view('mascotas.show', compact('mismascota'));
     }
 
-    public function edit(Mascota $mascota)
+    public function edit(Mascota $mismascota)
     {
-        //
+        $tipos = Tipo::all();
+
+        return view('mascotas.edit', compact('mismascota', 'tipos'));
     }
 
-    public function update(Request $request, Mascota $mascota)
+    public function update(MascotaRequest $request, Mascota $mismascota)
     {
-        //
+        // dd($mismascota->foto);
+        // $mismascota->url = \Str::slug($request->nombre) . "-{$request->fecha_nac}";
+        // OJO que si cambias el nombre también cambia la url y cuando generes el QR no saldran los datos
+
+        $mismascota->fill( $request->validated() );
+
+
+        if ($request->hasFile('foto')) {
+            if ($mismascota->foto != null) {
+                Storage::delete($mismascota->foto);
+                // $mismascota->foto->delete();
+            }
+
+            $mismascota->update([
+                'foto' => '/storage/'.request()->file('foto')->store('fotos', 'public')
+            ]);
+        }
+
+        if ($request->hasFile('solicitud')) {
+            if ($mismascota->solicitud != null) {
+                Storage::delete($mismascota->solicitud);
+                // $mismascota->solicitud->delete();
+            }
+
+            $mismascota->update([
+                'solicitud' => '/storage/'.request()->file('solicitud')->store('fotos', 'public')
+            ]);
+        }
+
+        $mismascota->save();
+
+
+        return redirect()->route('mismascotas.index')->with('status', $mismascota->nombre . ' fue Actualziado!');
     }
 
     public function destroy(Mascota $mascota)
