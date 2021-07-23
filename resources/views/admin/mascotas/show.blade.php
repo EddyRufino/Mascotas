@@ -11,6 +11,28 @@
         >
 
     </div>
+
+{{--     @if (optional(auth()->user()->admin_since == 1))
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="form-check">
+                <form  method="POST" action="{{ route('listadomascotas.destroy', $listadomascota) }}">
+                    @csrf @method('DELETE')
+                        <input class="form-check-input"
+                            name="estado_qr"
+                            type="checkbox"
+                            value="1"
+                            {{ old('estado_qr', $listadomascota->estado_qr) == 1 ? 'checked' : '' }}
+                            id="defaultCheck1"
+                            onchange="this.form.submit()"
+                        >
+                        <label class="form-check-label" for="defaultCheck1">
+                            Código QR Generado
+                        </label>
+                </form>
+            </div>
+        </div>
+    @endif --}}
+
     <div class="d-flex justify-content-center flex-column align-items-center">
         <ul class="list-group col-md-3">
             <li class="list-group-item"><strong>MI MASCOTA</strong></li>

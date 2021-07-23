@@ -46,8 +46,10 @@ class GenerarqrController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(Mascota $listadomascota)
     {
-        //
+        $listadomascota->estado_qr = 1;
+        $listadomascota->save();
+        return back();
     }
 }
