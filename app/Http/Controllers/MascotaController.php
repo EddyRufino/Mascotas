@@ -62,7 +62,6 @@ class MascotaController extends Controller
         if ($request->hasFile('foto')) {
             if ($mismascota->foto != null) {
                 Storage::delete($mismascota->foto);
-                // $mismascota->foto->delete();
             }
 
             $mismascota->update([
@@ -73,7 +72,6 @@ class MascotaController extends Controller
         if ($request->hasFile('solicitud')) {
             if ($mismascota->solicitud != null) {
                 Storage::delete($mismascota->solicitud);
-                // $mismascota->solicitud->delete();
             }
 
             $mismascota->update([
@@ -87,8 +85,8 @@ class MascotaController extends Controller
         return redirect()->route('mismascotas.index')->with('status', $mismascota->nombre . ' fue Actualziado!');
     }
 
-    public function destroy(Mascota $mascota)
+    public function destroy(Mascota $mismascota)
     {
-        //
+        // dd($mismascota);
     }
 }

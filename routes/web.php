@@ -15,7 +15,7 @@ Route::put('profile', 'ProfileController@update')
 Route::resource('mismascotas', 'MascotaController');
 
 // Lista Mascotas admin
-Route::resource('listadomascotas', 'GenerarqrController')->only(['index', 'show']);
+Route::resource('listadomascotas', 'GenerarqrController')->only(['index', 'show', 'destroy']);
 
 // Search Mascotas admin
 Route::get('buscar-mascota', 'search\SearchMascotaController@index')->name('search.mascota');

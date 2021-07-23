@@ -28,12 +28,12 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Nombre Mascota</th>
+                <th scope="col">Mascota</th>
                 <th scope="col">Sexo</th>
                 <th scope="col">Raza</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Estado</th>
-                <th scope="col">Nombre Dueño</th>
+                <th scope="col">Dueño</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
@@ -44,14 +44,37 @@
                 <td>{{ $mascota->sexo }}</td>
                 <td>{{ $mascota->raza }}</td>
                 <td>{{ $mascota->tipo->nombre }}</td>
-                <td>{{ $mascota->estado }}</td>
+                @if ($mascota->estado == 1)
+                    <td><span class="badge badge-info">Vivo</span></td>
+                @else
+                    <td><span class="badge badge-danger">Fallecido</span></td>
+                @endif
                 <td>{{ $mascota->user->name }}</td>
                 <td>
-                    <span>
-                        <a href="{{ route('listadomascotas.show', $mascota) }}" class="text-secondary">
-                            @include('icons.icon-qr')
-                        </a>
-                    </span>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span>
+                            <a href="{{ route('listadomascotas.show', $mascota) }}" class="text-secondary mr-1">
+                                @include('icons.icon-qr')
+                            </a>
+                        </span>
+                        <div class="form-check">
+                            <form  method="POST" action="{{ route('listadomascotas.destroy', $mascota) }}">
+                                @csrf @method('DELETE')
+                                    <input class="form-check-input"
+                                        name="estado_qr"
+                                        type="checkbox"
+                                        value="1"
+                                        {{ old('estado_qr', $mascota->estado_qr) == 1 ? 'checked' : '' }}
+                                        id="defaultCheck1"
+                                        onchange="this.form.submit()"
+                                        onclick="return confirm('¿Seguro de querer marcar esto?')"
+                                    >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        QR
+                                    </label>
+                            </form>
+                        </div>
+                    </div>
                 </td>
             </tr>
           @empty

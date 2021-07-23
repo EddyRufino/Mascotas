@@ -1,4 +1,3 @@
-{{-- {{ dd($mismascota) }} --}}
     <fieldset class="aside p-3 shadow-sm rounded boder-1">
         <legend class="text-legend">
             Mi Mascota
@@ -123,6 +122,33 @@
                     </div>
                 @enderror
         </div>
+
+        @if (request()->routeIs('mismascotas.create') == false)
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputState">Estado</label>
+                    <select id="inputState" name="estado" required class="form-control @error('estado') is-invalid  @enderror">
+                        <option selected>Selecciona</option>
+                        <option value="1"
+                            {{ old('estado', $mismascota->estado) == 1 ? 'selected' : '' }}
+                        >
+                            Vivo
+                        </option>
+                        <option value="0"
+                            {{ old('estado', $mismascota->estado) == 0 ? 'selected' : '' }}
+                        >
+                            Fallecido
+                        </option>
+                    </select>
+
+                    @error('estado')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                    @enderror
+                </div>
+            </div>
+        @endif
     </fieldset>
 
     <fieldset class="aside p-3 shadow-sm rounded boder-1 mt-3">
@@ -158,9 +184,7 @@
                 </div>
             @enderror
 
-            @if (request()->routeIs('mismascotas.create'))
-
-            @else
+            @if (request()->routeIs('mismascotas.create') == false)
                 <div class="mt-3">
                     <a href="{{ asset($mismascota->solicitud) }}" target="_blank">Ver Solicitud</a>
                 </div>
