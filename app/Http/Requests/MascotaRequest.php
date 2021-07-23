@@ -36,6 +36,7 @@ class MascotaRequest extends FormRequest
             'tipo_id' => ['required', 'integer'],
             'user_id' => [''],
             'estado' => ['nullable'],
+            'estado_qr' => ['nullable'],
         ];
     }
 }

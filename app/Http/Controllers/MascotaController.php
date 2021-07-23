@@ -85,8 +85,8 @@ class MascotaController extends Controller
         return redirect()->route('mismascotas.index')->with('status', $mismascota->nombre . ' fue Actualziado!');
     }
 
-    public function destroy(Mascota $mascota)
+    public function destroy(Mascota $mismascota)
     {
-        //
+        // dd($mismascota);
     }
 }
