@@ -62,7 +62,6 @@ class MascotaController extends Controller
         if ($request->hasFile('foto')) {
             if ($mismascota->foto != null) {
                 Storage::delete($mismascota->foto);
-                // $mismascota->foto->delete();
             }
 
             $mismascota->update([
@@ -73,7 +72,6 @@ class MascotaController extends Controller
         if ($request->hasFile('solicitud')) {
             if ($mismascota->solicitud != null) {
                 Storage::delete($mismascota->solicitud);
-                // $mismascota->solicitud->delete();
             }
 
             $mismascota->update([
