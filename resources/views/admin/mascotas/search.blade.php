@@ -33,6 +33,7 @@
                 <th scope="col">Raza</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Estado</th>
+                <th scope="col">QR</th>
                 <th scope="col">Nombre Dueño</th>
                 <th scope="col">Acciones</th>
             </tr>
@@ -44,7 +45,19 @@
                 <td>{{ $mascota->sexo }}</td>
                 <td>{{ $mascota->raza }}</td>
                 <td>{{ $mascota->tipo->nombre }}</td>
-                <td>{{ $mascota->estado }}</td>
+
+                @if ($mascota->estado == 1)
+                    <td><span class="badge badge-info">Vivo</span></td>
+                @else
+                    <td><span class="badge badge-danger">Fallecido</span></td>
+                @endif
+
+                @if ($mascota->estado_qr == 1)
+                    <td><span class="badge badge-warning">Generado</span></td>
+                @else
+                    <td></td>
+                @endif
+
                 <td>{{ $mascota->user->name }}</td>
                 <td>
                     <span>

@@ -34,7 +34,15 @@ class Mascota extends Model
 
         $mascota = static::query()->create($attributes);
 
-        $mascota->url = \Str::slug($attributes['nombre']) . "-{$mascota->id}";
+        $url = \Str::slug($attributes['nombre']);
+
+        if (static::whereUrl($url)->exists()) {
+
+            $mascota->url = \Str::slug($attributes['nombre']) . "-{$mascota->id}";
+        } else {
+
+            $mascota->url = \Str::slug($attributes['nombre']);
+        }
 
         $mascota->foto = '/storage/'.request()->file('foto')->store('fotos', 'public');
 

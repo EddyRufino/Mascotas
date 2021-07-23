@@ -14,7 +14,7 @@ class GenerarqrController extends Controller
 
     public function index()
     {
-        $mascotas = Mascota::latest()->paginate();
+        $mascotas = Mascota::where('estado_qr', 0)->latest()->paginate();
 
         return view('admin.mascotas.index', compact('mascotas'));
     }
@@ -33,6 +33,8 @@ class GenerarqrController extends Controller
 
     public function show(Mascota $listadomascota)
     {
+        // $this->authorize('view', $listadomascota);
+
         return view('admin.mascotas.show', compact('listadomascota'));
     }
 

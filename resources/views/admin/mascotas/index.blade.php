@@ -57,23 +57,6 @@
                                 @include('icons.icon-qr')
                             </a>
                         </span>
-                        <div class="form-check">
-                            <form  method="POST" action="{{ route('listadomascotas.destroy', $mascota) }}">
-                                @csrf @method('DELETE')
-                                    <input class="form-check-input"
-                                        name="estado_qr"
-                                        type="checkbox"
-                                        value="1"
-                                        {{ old('estado_qr', $mascota->estado_qr) == 1 ? 'checked' : '' }}
-                                        id="defaultCheck1"
-                                        onchange="this.form.submit()"
-                                        onclick="return confirm('¿Seguro de querer marcar esto?')"
-                                    >
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        QR
-                                    </label>
-                            </form>
-                        </div>
                     </div>
                 </td>
             </tr>

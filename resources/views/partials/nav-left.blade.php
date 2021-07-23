@@ -1,5 +1,5 @@
 <div class="col-md-3 mt-2">
-    <div class="list-group shadow-sm">
+    <div class="list-group">
         <a href="{{ route('mismascotas.index') }}"
             class="list-group-item list-group-item-action
                 {{ request()->routeIs('mismascotas.index') ? 'active' : '' }}"

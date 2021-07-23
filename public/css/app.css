@@ -33,6 +33,28 @@ legend {
   color: #495057;
 }
 
+.foto {
+  background-image: url(/images/hueso-1.jpg?dda253ff0bc497691a26c5f516d1668e) !important;
+  background-repeat: no-repeat !important;
+  z-index: 999 !important;
+}
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px !important;
+  margin-bottom: 0;
+  border-radius: 0.25rem;
+}
+
+.color-box-header {
+  background-color: #F3F4F6 !important;
+}
+
+.color-box {
+  background-color: #F9FAFB !important;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
