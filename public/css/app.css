@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.bg-primary {
+  background: linear-gradient(to right, #10B981, #059669);
+}
+
 .form-control {
   background-color: #F9FAFB !important;
 }

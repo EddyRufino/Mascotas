@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-4">
     <div class="col-sm d-flex justify-content-center flex-column align-items-center mb-3">
         <li class="list-group-item border-0 m-0 pt-0 text-center"><strong>CÉDULA DE IDENTIFICICACIÓN ANIMAL</strong></li>
         <img

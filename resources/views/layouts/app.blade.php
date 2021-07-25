@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Styles Customer -->
+    @stack('styles')
 </head>
 <body>
     <div id="app">
@@ -41,11 +44,15 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-white" href="{{ route('login') }}">
+                                    Entrar
+                                </a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}">
+                                        Registrate
+                                    </a>
                                 </li>
                             @endif
                         @else
@@ -87,7 +94,7 @@
             @include('partials.session')
         </div>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
 
