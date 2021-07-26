@@ -99,6 +99,10 @@
         </main>
 
     </div>
+
+    <footer class="bg-white text-black-50 text-center py-3 shadow">
+        Municipalidad Distrital De Castilla | Copyright @ {{ date('Y') }}
+    </footer>
     @stack('script')
 </body>
 </html>
