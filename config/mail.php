@@ -60,6 +60,10 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+        'mailgun' => [
+            'domain' => env('MAILGUN_DOMIAN'),
+            'secret' => env('MAILGUN_KEY'),
+        ],
     ],
 
     /*

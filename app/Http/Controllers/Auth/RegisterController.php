@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'dni' => $data['dni'],
             'celular' => $data['celular'],
             'direccion' => $data['direccion'],
-            'admin_since' => $data['admin_since'],
+            'admin_since' => 0,
         ]);
     }
 }
