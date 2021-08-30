@@ -60,9 +60,9 @@
                 <label for="inputCity">Fecha Nacimiento</label>
                 <input type="date"
                     name="fecha_nac"
-                    min="2015-01-01" max="2030-12-31" required
+                    min="2010-01-01" max="2030-12-31" required
                     class="form-control @error('fecha_nac') is-invalid  @enderror"
-                    value="<?php echo $_SERVER["REQUEST_URI"] ? date("Y-m-d", strtotime($mismascota->fecha_nac)) : date("Y-m-d"); ?>"
+                    value="<?php echo date("Y-m-d"); ?>"
                     id="inputCity"
                     required
                 >
