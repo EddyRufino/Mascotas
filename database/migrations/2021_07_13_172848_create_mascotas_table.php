@@ -24,11 +24,10 @@ class CreateMascotasTable extends Migration
             $table->string('caracteristicas');
             $table->string('foto')->nullable();
             $table->string('solicitud')->nullable();
-            $table->integer('estado')->default(1)->nullable();
+            $table->integer('estado')->default(1)->nullable(); // Vivo o muerto
             $table->integer('estado_qr')->default(0)->nullable();
             $table->foreignId('tipo_id')->constrained('tipos');
             $table->foreignId('user_id')->constrained('users');
-            // $table->foreignId('solicitude_id')->constrained('solicitudes')->nullable();
             $table->timestamps();
         });
     }

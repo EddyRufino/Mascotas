@@ -35,7 +35,7 @@ class MascotaController extends Controller
     {
         $mascota = Mascota::create( $request->all() );
 
-        return redirect()->route('mismascotas.index')->with('status', $mascota->nombre . ' fue registrado!');
+        return redirect()->route('mismascotas.index')->with('status', $mascota->nombre . ' fue registrad@!');
     }
 
     public function show(Mascota $mismascota)
@@ -82,7 +82,7 @@ class MascotaController extends Controller
         $mismascota->save();
 
 
-        return redirect()->route('mismascotas.index')->with('status', $mismascota->nombre . ' fue Actualziado!');
+        return redirect()->route('mismascotas.index')->with('status', $mismascota->nombre . ' fue Actualziad@!');
     }
 
     public function destroy(Mascota $mismascota)

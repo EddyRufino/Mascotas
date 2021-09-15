@@ -15,8 +15,6 @@
                     @include('mascotas.form', [
                         'btn' => 'Editar'
                     ])
-
-
                 </form>
             </div>
         </div>

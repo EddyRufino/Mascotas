@@ -180,26 +180,7 @@
                     </div>
                 @enderror
             </div>
-            <i class="text-dark">Adjunta un solo archivo en formato PDF que contenga las solicitudes.</i>
-
-{{--             <div class="custom-file">
-                <input
-                    type="file"
-                    name="solicitud"
-                    class="custom-file-input @error('solicitud') is-invalid  @enderror"
-                    value="{{ old('foto', $mismascota->solicitud) }}"
-                >
-                <label class="custom-file-label">
-                    Seleciona un archivo PDF
-                </label>
-
-                @error('solicitud')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                @enderror
-            </div> --}}
-
+            <i class="text-secondary">Adjunta un solo archivo en formato PDF que contenga las solicitudes.</i>
 
             @if (request()->routeIs('mismascotas.create') == false)
                 <div class="mt-3">
@@ -232,24 +213,6 @@
                     </div>
                 @enderror
             </div>
-
-       {{--      <div class="custom-file">
-                <input
-                    type="file"
-                    name="foto"
-                    class="custom-file-input @error('foto') is-invalid  @enderror"
-                    value="{{ old('foto', $mismascota->foto) }}"
-                >
-                <label class="custom-file-label">
-                    Seleciona una foto JPG
-                </label>
-
-                @error('foto')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                @enderror
-            </div> --}}
 
 
             @if (request()->routeIs('mismascotas.create'))

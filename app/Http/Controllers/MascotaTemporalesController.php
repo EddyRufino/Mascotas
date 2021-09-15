@@ -14,7 +14,7 @@ class MascotaTemporalesController extends Controller
 
     public function index()
     {
-        $mascotas = MascotaTemporal::where('estado_qr', NULL)->latest()->paginate();
+        $mascotas = MascotaTemporal::where('estado_qr', 0)->latest()->paginate();
 
         return view('mascotaTemporales.index', compact('mascotas'));
     }
@@ -26,9 +26,29 @@ class MascotaTemporalesController extends Controller
 
     public function store(Request $request)
     {
-        $mascota = MascotaTemporal::create( $request->all() );
+        $data = $request->validate([
+            'nombre_mascota' => 'required',
+            'url' => 'nullable',
+            'fecha_nacimiento' => 'required',
+            'tipo' => 'required',
+            'raza' => 'required',
+            'sexo' => 'required',
+            'color' => 'required',
+            'nombre_adulto' => 'required',
+            'apellidos_adulto' => 'required',
+            'celular' => 'required',
+            'direccion' => 'required',
+            'fecha_emision' => 'required',
+            'foto' => 'required|image|max:3072',
+            'estado_qr' => 'nullable'
+        ]);
 
-        return redirect()->route('mimascotas.index')->with('status', $mascota->nombre . ' fue registrado!');
+        $data['estado_qr'] = 0;
+
+        $mascota = MascotaTemporal::create( $data );
+
+        return redirect()->route('mimascotas.index')
+            ->with('status', $mascota->nombre_mascota . ' fue registrado!');
     }
 
     public function show(MascotaTemporal $mimascota)

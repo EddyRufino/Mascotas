@@ -36,20 +36,29 @@ Route::put('profile', 'ProfileController@update')
 Route::resource('mismascotas', 'MascotaController');
 
 // Mascotas - Temporales
-Route::resource('mimascotas', 'MascotaTemporalesController');
+Route::resource('mimascotas', 'MascotaTemporalesController')->middleware('can:admin');
 
 // Lista Mascotas admin
-Route::resource('listadomascotas', 'GenerarqrController')->only(['index', 'show', 'destroy']);
+Route::get('listadomascotas', 'GenerarqrController@index')
+    ->name('listadomascotas.index')
+    ->middleware('can:admin');
+
+Route::get('listadomascotas/{listadomascota}', 'GenerarqrController@show')
+    ->name('listadomascotas.show');
+
+Route::delete('listadomascotas/{listadomascota}', 'GenerarqrController@destroy')
+    ->name('listadomascotas.destroy')
+    ->middleware('can:admin');
 
 // Search Mascotas admin
-Route::get('buscar-mascota', 'search\SearchMascotaController@index')->name('search.mascota');
+Route::get('buscar-mascota', 'search\SearchMascotaController@index')
+    ->name('search.mascota')
+    ->middleware('can:admin');
 
 // Search Mascotas Temporales admin
-Route::get('buscar-mascota-temporal', 'search\SearchMascotaTemporalesController@index')->name('search.mascota.temporal');
-
-// Solicitudes
-Route::get('mis-solicitudes', 'SolicitudeController@create')->name('mis-solicitudes.create');
-Route::post('mis-solicitudes', 'SolicitudeController@store')->name('mis-solicitudes.store');
+Route::get('buscar-mascota-temporal', 'search\SearchMascotaTemporalesController@index')
+    ->name('search.mascota.temporal')
+    ->middleware('can:admin');
 
 Auth::routes();
 
