@@ -165,24 +165,41 @@
             >
             @include('icons.icon-readme')
             </span>
-{{--             <input type="file" name="solicitud" class="form-control-file @error('solicitud') is-invalid  @enderror" id="exampleFormControlFile1"> --}}
-            <div class="custom-file">
+
+            <div class="boder-1 p-2 rounded">
                 <input
                     type="file"
                     name="solicitud"
-                    class="custom-file-input"
+                    class="form-control-file @error('solicitud') is-invalid  @enderror"
+                    id="exampleFormControlFile1"
+                >
+
+                @error('solicitud')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+            <i class="text-dark">Adjunta un solo archivo en formato PDF que contenga las solicitudes.</i>
+
+{{--             <div class="custom-file">
+                <input
+                    type="file"
+                    name="solicitud"
+                    class="custom-file-input @error('solicitud') is-invalid  @enderror"
                     value="{{ old('foto', $mismascota->solicitud) }}"
                 >
                 <label class="custom-file-label">
                     Seleciona un archivo PDF
                 </label>
-            </div>
 
-            @error('solicitud')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-            @enderror
+                @error('solicitud')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div> --}}
+
 
             @if (request()->routeIs('mismascotas.create') == false)
                 <div class="mt-3">
@@ -197,31 +214,46 @@
             <span
                 class="cursor"
                 data-toggle="tooltip"
-                data-placement="top" title="Adjunta la foto de tu mascota en formato .JPG"
+                data-placement="top" title="Adjunta la foto de tu mascota en formato .JPG .PNG .JPEG"
             >
             @include('icons.icon-readme')
             </span>
-            {{-- <input type="file" name="foto" class="form-control-file @error('foto') is-invalid  @enderror" id="exampleFormControlFile1"> --}}
-            <div class="custom-file">
+            <div class="boder-1 p-2 rounded">
                 <input
                     type="file"
                     name="foto"
-                    class="custom-file-input"
+                    class="form-control-file @error('foto') is-invalid  @enderror"
+                    id="exampleFormControlFile1"
+                >
+
+                @error('foto')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+
+       {{--      <div class="custom-file">
+                <input
+                    type="file"
+                    name="foto"
+                    class="custom-file-input @error('foto') is-invalid  @enderror"
                     value="{{ old('foto', $mismascota->foto) }}"
                 >
                 <label class="custom-file-label">
                     Seleciona una foto JPG
                 </label>
-            </div>
 
-            @error('foto')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-            @enderror
+                @error('foto')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div> --}}
+
 
             @if (request()->routeIs('mismascotas.create'))
-
+                {{--  --}}
             @else
                 <div class="mt-3">
                     <img
@@ -237,5 +269,5 @@
     </fieldset>
 
     <div class="form-group mt-3">
-        <button type="submit" class="btn btn-primary">{{ $btn }}</button>
+        <button type="submit" class="btn btn-secondary text-white">{{ $btn }}</button>
     </div>

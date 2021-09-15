@@ -8,7 +8,7 @@ $line-height-base: 1.6;
 
 // Colors 6c757d
 $primary: #10B981;
-$secondary: #6366F1;
+$secondary: #6B7280;
 $blue: #3490dc;
 $indigo: #6574cd;
 $purple: #9561e2;
@@ -24,7 +24,13 @@ $cyan: #6cb2eb;
     background: linear-gradient(to right, #10B981, #059669);
 }
 
+.bg-third {
+    background: #ffed4a !important;
+}
 
+div#app {
+    min-height: 100vh;
+}
 
 .form-control {
     background-color: #F9FAFB !important;
@@ -51,7 +57,7 @@ strong {
 }
 
 legend {
-  width: 82px !important;
+  width: 100px !important;
   font-size: 1rem !important;
 }
 

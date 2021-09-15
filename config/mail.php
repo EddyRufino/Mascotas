@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'sendgrid'),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,9 +60,14 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+
         'mailgun' => [
             'domain' => env('MAILGUN_DOMIAN'),
             'secret' => env('MAILGUN_KEY'),
+        ],
+
+        'sendgrid' => [
+            'transport' => 'sendgrid',
         ],
     ],
 

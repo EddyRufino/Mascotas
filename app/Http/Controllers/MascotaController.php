@@ -58,7 +58,7 @@ class MascotaController extends Controller
 
         $mismascota->fill( $request->validated() );
 
-
+        // dd($request->foto);
         if ($request->hasFile('foto')) {
             if ($mismascota->foto != null) {
                 Storage::delete($mismascota->foto);

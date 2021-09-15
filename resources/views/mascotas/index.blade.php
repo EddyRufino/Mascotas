@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="d-flex flex-row flex-wrap">
                 @forelse($mascotas as $mascota)
-                    <div class="card ml-1 mt-1" style="width: 18rem;">
+                    <div class="card ml-1 mt-1 shadow" style="width: 18rem;">
                         <img class="card-img-top" src="{{ asset($mascota->foto) }}" alt="Card image cap"
                             style="height: 200px;">
                         {{-- <span class="bg-secondary rounded text-center text-white " style="width: 4rem;">Canino</span> --}}
@@ -24,7 +24,7 @@
                                         $mascota->caracteristicas), 90, '...'
                                     ) }}
                             </p>
-                            <a href="{{ route('mismascotas.show', $mascota) }}" class="btn btn-primary">Ver más</a>
+                            <a href="{{ route('mismascotas.show', $mascota) }}" class="btn btn-secondary text-white">Ver más</a>
                         </div>
                     </div>
                 @empty
