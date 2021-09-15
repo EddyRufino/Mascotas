@@ -72,6 +72,9 @@
                                         <a class="dropdown-item" href="{{ route('listadomascotas.index') }}">
                                             Generar QR
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('mimascotas.index') }}">
+                                            Temporales
+                                        </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
