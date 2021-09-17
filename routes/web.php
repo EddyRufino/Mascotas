@@ -62,7 +62,7 @@ Route::get('buscar-mascota-temporal', 'search\SearchMascotaTemporalesController@
 
 // View Ficha pet
 Route::get('ficha-propiedad', 'Report\ReportFileController@index')->name('ficha');
-Route::get('genera-pdf-propiedad', 'Report\ReportFileController@pdf')->name('ficha.pdf');
+Route::get('genera-pdf-propiedad/{id}', 'Report\ReportFileController@pdf')->name('ficha.pdf');
 
 Auth::routes();
 

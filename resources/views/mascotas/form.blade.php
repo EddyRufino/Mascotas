@@ -1,5 +1,5 @@
     <fieldset class="aside p-3 shadow-sm rounded boder-1">
-        <legend class="text-legend">
+        <legend class="text-legend legend">
             Mi Mascota
         </legend>
         <div class="form-row">
@@ -152,7 +152,7 @@
     </fieldset>
 
     <fieldset class="aside p-3 shadow-sm rounded boder-1 mt-3">
-        <legend class="text-legend">
+        <legend class="text-legend legend">
             Solicitudes
         </legend>
 
