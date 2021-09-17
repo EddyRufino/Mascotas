@@ -9,6 +9,8 @@ class Mascota extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['user'];
+
     protected $casts = [
         'fecha_nac' => 'date',
     ];

@@ -60,6 +60,10 @@ Route::get('buscar-mascota-temporal', 'search\SearchMascotaTemporalesController@
     ->name('search.mascota.temporal')
     ->middleware('can:admin');
 
+// View Ficha pet
+Route::get('ficha-propiedad', 'Report\ReportFileController@index')->name('ficha');
+Route::get('genera-pdf-propiedad', 'Report\ReportFileController@pdf')->name('ficha.pdf');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
