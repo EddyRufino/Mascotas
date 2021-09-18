@@ -55,22 +55,36 @@
 
     /** Inicio User Box **/
     .user-container {
-        width: 60%;
-        margin: auto;
+/*        width: 60%;
+        margin: auto;*/
+        width: 45%;
+        float: right;
         margin-top: 38.3%;
+        margin-right: 4.4rem;
     }
-
     /** Fin User Box **/
-
     .qr {
         margin-top: 2.5rem;
         margin-left: 2.5rem;
+    }
+
+    .foto-pet {
+        margin-top: 2.5rem;
+        margin-left: 1rem;
     }
 
     .qr-title {
         display: block;
         margin-top: 1rem;
         text-align: center;
+    }
+
+    /** css Foto container **/
+    .foto-container {
+        width: 45%;
+        float: left;
+        margin-top: 38.3%;
+        margin-left: 4.4rem;
     }
 
     /** css para todos**/
@@ -99,7 +113,7 @@
 
 <body>
     <header class="header">
-        <img src="{{ asset('images/logo-2.png') }}"
+        <img src="{{ asset('img/logo.png') }}"
             alt="Logo Minucipalidad De Castilla"
             class="circle"
         >
@@ -110,8 +124,50 @@
     </header>
 
     <article class="pet-container">
-        <h3 class="all-header">Mi Mascota</h3>
+        <h3 class="all-header">Fotografía</h3>
         <section class="all-body all-box">
+            <div class="foto-pet">
+                <img src="{{ asset($mascota[0]->foto) }}"
+                    style="width: 250px; height: 250px; border-radius: 3px;"
+                >
+            </div>
+        </section>
+    </article>
+
+    <article class="qr-container">
+        <h3 class="all-header">Código QR</h3>
+        <section class="all-body all-box">
+            <div class="qr">
+                <img src="{{ asset('qrcodes/' . $mascota[0]->url . '.svg') }}">
+            </div>
+            <span class="qr-title">¡Escanea el Código QR!</span>
+        </section>
+    </article>
+
+    <div class="huella"
+        style="z-index: -1; position: absolute; margin-top: 5rem;"
+    >
+        <img src="{{ asset('img/huella-1.jpg') }}"
+            style="display: block;"
+        >
+    </div>
+
+    <article class="foto-container">
+        <h3 class="all-header">Adulto Responsable</h3>
+        <section class="all-body all-box" style="height: 51%;">
+            <p>Nombres: {{ $mascota[0]->user->name }}</p>
+            <p>Apellidos: {{ $mascota[0]->user->apellidos }}</p>
+            <p>D.N.I: {{ $mascota[0]->user->dni }}</p>
+            <p>Celular: {{ $mascota[0]->user->celular }}</p>
+            <p>Dirección: {{ $mascota[0]->user->direccion }}</p>
+        </section>
+    </article>
+
+    <article class="user-container">
+        <h3 class="all-header">Mi Mascota</h3>
+        <section class="all-body all-box" style="height: 51%">
+
+
             <p>Nombre: {{ $mascota[0]->nombre }}</p>
             <p>Tipo: {{ $mascota[0]->tipo->nombre }}</p>
             <p>Raza: {{ $mascota[0]->raza }}</p>
@@ -124,27 +180,6 @@
                 <p>Estado: Fallecido</p>
             @endif
             <p>Descripción: {{ $mascota[0]->caracteristicas }}</p>
-        </section>
-    </article>
-
-    <article class="qr-container">
-        <h3 class="all-header">Código QR</h3>
-        <section class="all-body all-box">
-            <div class="qr">
-                <img src="{{ asset('qrcodes/' . $mascota[0]->url . '.svg') }}">
-            </div>
-                <span class="qr-title">¡Escanea el Código QR!</span>
-        </section>
-    </article>
-
-    <article class="user-container">
-        <h3 class="all-header">Adulto Responsable</h3>
-        <section class="all-body all-box">
-            <p>Nombres: {{ $mascota[0]->user->name }}</p>
-            <p>Apellidos: {{ $mascota[0]->user->apellidos }}</p>
-            <p>D.N.I: {{ $mascota[0]->user->dni }}</p>
-            <p>Celular: {{ $mascota[0]->user->celular }}</p>
-            <p>Dirección: {{ $mascota[0]->user->direccion }}</p>
         </section>
     </article>
 </body>
