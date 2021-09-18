@@ -27,7 +27,7 @@ class ReportFileController extends Controller
 
         $pdf = PDF::loadView('fichas.pdf', compact('mascota', 'qr'));
 
-        return $pdf->stream();
-        // return $pdf->download('ficha-propiedad.pdf');
+        // return $pdf->stream();
+        return $pdf->download('ficha-propiedad.pdf');
     }
 }

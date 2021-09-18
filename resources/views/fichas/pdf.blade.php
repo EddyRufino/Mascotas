@@ -154,7 +154,7 @@
 
     <article class="foto-container">
         <h3 class="all-header">Adulto Responsable</h3>
-        <section class="all-body all-box" style="height: 51%;">
+        <section class="all-body all-box" style="height: 51%; overflow: hidden;">
             <p>Nombres: {{ $mascota[0]->user->name }}</p>
             <p>Apellidos: {{ $mascota[0]->user->apellidos }}</p>
             <p>D.N.I: {{ $mascota[0]->user->dni }}</p>
@@ -165,9 +165,7 @@
 
     <article class="user-container">
         <h3 class="all-header">Mi Mascota</h3>
-        <section class="all-body all-box" style="height: 51%">
-
-
+        <section class="all-body all-box" style="height: 51%; overflow: hidden;">
             <p>Nombre: {{ $mascota[0]->nombre }}</p>
             <p>Tipo: {{ $mascota[0]->tipo->nombre }}</p>
             <p>Raza: {{ $mascota[0]->raza }}</p>
