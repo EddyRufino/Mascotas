@@ -30,7 +30,7 @@
     .pet-container {
         width: 45%;
         float: left;
-        margin-top: 24px;
+        margin-top: 3rem;
     }
 
     .pet-box {
@@ -119,6 +119,17 @@
         padding: 2.5rem 1rem;
     }
     /** Fin User Box **/
+
+    .qr {
+        margin-top: 2.5rem;
+        margin-left: 2.5rem;
+    }
+
+    .qr-title {
+        display: block;
+        margin-top: 1rem;
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -154,8 +165,10 @@
     <article class="qr-container">
         <h3 class="qr-header">Código QR</h3>
         <section class="qr-body qr-box">
-            <p>xD</p>
-            <p>xD</p>
+            <div class="qr">
+                <img src="{{ asset('qrcodes/' . $mascota[0]->url . '.svg') }}">
+            </div>
+                <span class="qr-title">¡Escanea el Código QR!</span>
         </section>
     </article>
 

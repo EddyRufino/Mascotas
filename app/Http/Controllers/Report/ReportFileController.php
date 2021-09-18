@@ -6,6 +6,7 @@ use App\Mascota;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\Controller;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ReportFileController extends Controller
 {
@@ -22,7 +23,9 @@ class ReportFileController extends Controller
                 ->latest()
                 ->get();
 
-        $pdf = PDF::loadView('fichas.pdf', compact('mascota'));
+        $qr = QrCode::size(200)->generate(route('listadomascotas.show', ['listadomascota' => $mascota[0]->url]), '../public/qrcodes/'. $mascota[0]->url .'.svg');
+
+        $pdf = PDF::loadView('fichas.pdf', compact('mascota', 'qr'));
 
         return $pdf->stream();
         // return $pdf->download('ficha-propiedad.pdf');

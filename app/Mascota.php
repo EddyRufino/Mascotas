@@ -54,4 +54,5 @@ class Mascota extends Model
 
         return $mascota;
     }
+
 }

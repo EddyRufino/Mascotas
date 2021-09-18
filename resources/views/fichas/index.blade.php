@@ -10,8 +10,9 @@
         <div class="col-md-6">
             <fieldset class="aside p-3 shadow-sm rounded boder-1">
                 <legend class="text-legend legend-ficha">
-                    Ficha con los datos de tu mascota
+                    Ficha Propiedad Animal
                 </legend>
+                {{-- <p class="text-legend">Descarga la ficha </p> --}}
                 @foreach ($mascotas as $mascota)
                     <div class="d-flex justify-content-between border pl-3 pr-3 p-2 rounded mb-2">
                         <span class="text-legend">{{ $mascota->nombre }}</span>
