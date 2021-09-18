@@ -144,9 +144,7 @@
         </section>
     </article>
 
-    <div class="huella"
-        style="z-index: -1; position: absolute; margin-top: 5rem;"
-    >
+    <div style="z-index: -1; position: absolute; margin-top: 5rem;" >
         <img src="{{ asset('img/huella-1.jpg') }}"
             style="display: block;"
         >

@@ -10,6 +10,11 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ReportFileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $mascotas = Mascota::where('user_id', auth()->id())->latest()->get();
