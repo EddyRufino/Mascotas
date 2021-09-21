@@ -60,6 +60,12 @@
                                 @include('icons.icon-qr')
                             </a>
                         </span>
+                        <span>
+                            <a href="{{ route('carnet.temporal.anverso', $mascota->id) }}" class="text-secondary ml-1">
+                                @include('icons.download')
+                            </a>
+                        </span>
+                    </div>
                     </div>
                 </td>
             </tr>

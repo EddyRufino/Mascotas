@@ -67,14 +67,16 @@ html {
             style="display: block; width: 100%; height: 793px;"
         >
         {{-- Pon aquí el QR si va en el anverso --}}
-        <img src="{{ asset('qrcodes/' . $mascota[0]->url . '.svg') }}" width="180"
-            class="qr-encima">
+        <img src="{{ asset('qrcodes-temporal/' . $mascota[0]->url . '.svg') }}"
+             class="qr-encima"
+             width="180"
+        >
         <div class="foto-encima">
             <img src="{{ asset($mascota[0]->foto) }}" style="width: 350px; height: 460px;">
         </div>
-        <span class="texto-encima-nombre">{{ $mascota[0]->nombre }}</span>
+        <span class="texto-encima-nombre">{{ $mascota[0]->nombre_mascota }}</span>
         <span class="texto-encima-raza">{{ $mascota[0]->raza }}</span>
-        <span class="texto-encima-fecha_nac">{{ $mascota[0]->fecha_nac }}</span>
+        <span class="texto-encima-fecha_nac">{{ $mascota[0]->fecha_nacimiento }}</span>
         <span class="texto-encima-color">{{ $mascota[0]->color }}</span>
         {{-- Pon aquí el QR si va en el reverso --}}
 {{--         <img src="{{ asset('qrcodes/' . $mascota[0]->url . '.svg') }}" width="85"
