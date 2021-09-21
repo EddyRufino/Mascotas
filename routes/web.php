@@ -50,6 +50,12 @@ Route::delete('listadomascotas/{listadomascota}', 'GenerarqrController@destroy')
     ->name('listadomascotas.destroy')
     ->middleware('can:admin');
 
+// Generate Carnet PDF
+Route::get('carnet/{anverso}', 'Report\CarnetController@anverso')->name('carnet.anverso');
+
+// Generate Carnet PDF - Temporales
+Route::get('carnet-temporal/{anverso}', 'Report\CarnetTemporalController@anverso')->name('carnet.temporal.anverso');
+
 // Search Mascotas admin
 Route::get('buscar-mascota', 'search\SearchMascotaController@index')
     ->name('search.mascota')
