@@ -50,6 +50,9 @@ Route::delete('listadomascotas/{listadomascota}', 'GenerarqrController@destroy')
     ->name('listadomascotas.destroy')
     ->middleware('can:admin');
 
+Route::get('carnet/{anverso}', 'Report\CarnetController@anverso')->name('carnet.anverso');
+// Route::get('carnet/{reverso}', 'Report\CarnetController@reverso')->name('carnet.reverso');
+
 // Search Mascotas admin
 Route::get('buscar-mascota', 'search\SearchMascotaController@index')
     ->name('search.mascota')
@@ -67,3 +70,14 @@ Route::get('genera-pdf-propiedad/{id}', 'Report\ReportFileController@pdf')->name
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('try', function () {
+//in Controller
+        $path = 'img/carnet.jpg';
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $logo = 'data:image/' . $type . ';base64,' . base64_encode($data);
+  //in View
+        dd($type);
+        // return echo <img src="{{ $data['logo'] }}" width="150" height="150" />;
+});
