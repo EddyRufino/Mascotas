@@ -6,6 +6,7 @@ use App\Mascota;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\Controller;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class CarnetController extends Controller
 {
@@ -17,6 +18,8 @@ class CarnetController extends Controller
     public function anverso($anverso)
     {
         $mascota = Mascota::where('id', $anverso)->get();
+
+        QrCode::size(200)->generate(route('listadomascotas.show', ['listadomascota' => $mascota[0]->url]), '../public/qrcodes/'. $mascota[0]->url .'.svg');
 
         $pdf = PDF::loadView('admin.export.carnet-anverso', compact('mascota'));
 
